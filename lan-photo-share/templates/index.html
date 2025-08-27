@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="grid">
+  {% for p in photos %}
+  <a class="card" href="/media/originals/{{ p.filename }}" target="_blank">
+    <img loading="lazy" src="/media/thumbs/{{ p.filename }}" alt="{{ p.title or p.filename }}">
+    <div class="meta">
+      <strong>{{ p.title or "(無題)" }}</strong>
+      <small>#{{ p.id }} / {{ p.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+    </div>
+  </a>
+  {% else %}
+  <p>まだ写真がありません。右上の「アップロード」から追加してね。</p>
+  {% endfor %}
+</section>
+{% endblock %}

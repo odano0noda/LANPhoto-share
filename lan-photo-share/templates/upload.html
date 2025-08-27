@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>写真をアップロード</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+  <label>タイトル（任意）<br>
+    <input type="text" name="title" placeholder="例：新潟の海"></label>
+  <label>画像ファイル<br>
+    <input type="file" name="file" accept="image/*" required></label>
+  <button type="submit">アップロード</button>
+</form>
+<p class="hint">対応: JPEG / PNG / WebP</p>
+{% endblock %}
